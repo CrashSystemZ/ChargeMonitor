@@ -1,0 +1,8 @@
+ChargeMonitor.xcodeproj/xcuserdata/
+# macOS
+.DS_Store
+
+# Xcode
+*.xcuserstate
+xcuserdata/
+DerivedData/
