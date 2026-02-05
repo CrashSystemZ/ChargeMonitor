@@ -37,18 +37,18 @@ Built‑in indicators provide only basic status. ChargeMonitor gathers more cont
   - mapping PID → app by executable path or responsible process.
 
 ## Install & Run
-  - Using Homebrew:
+- Using Homebrew:
   ```bash
   brew install --cask CrashSystemZ/chargemonitor/chargemonitor
   ```
-  Homebrew will always install the latest official release.
+Homebrew will always install the latest official release.
   <p>
     OR
   </p>
 
-  - Download the latest release from GitHub.
-  - Move the app to /Applications.
-  - Launch ChargeMonitor — the menu bar will show the battery percentage; click to open the popover.
+- Download the latest release from GitHub.
+- Move the app to /Applications.
+- Launch ChargeMonitor — the menu bar will show the battery percentage; click to open the popover.
 
 The app runs as an accessory (no Dock icon) and requires no extra permissions.
 
