@@ -51,7 +51,7 @@ struct IOKitBatteryReader {
 		let isFastCharging = chargingByWire && chargingPower >= Self.fastChargePowerThresholdW
 		
 		var snapshot = BatterySnapshot()
-		snapshot.systemUptimeSeconds = ProcessInfo.processInfo.systemUptime
+		snapshot.systemUptimeSeconds = Self.readUptimeSeconds()
 		snapshot.powerSource = powerSource
 		snapshot.isCharging = isCharging
 		snapshot.isFastCharging = isFastCharging
@@ -256,6 +256,17 @@ struct IOKitBatteryReader {
 		(value * 100).rounded() / 100
 	}
 	
+	private static func readUptimeSeconds() -> TimeInterval {
+		var mib = [CTL_KERN, KERN_BOOTTIME]
+		var bootTime = timeval()
+		var size = MemoryLayout<timeval>.size
+		guard sysctl(&mib, 2, &bootTime, &size, nil, 0) == 0 else {
+			return ProcessInfo.processInfo.systemUptime
+		}
+		let bootDate = Date(timeIntervalSince1970: TimeInterval(bootTime.tv_sec) + TimeInterval(bootTime.tv_usec) / 1_000_000)
+		return Date().timeIntervalSince(bootDate)
+	}
+
 	private func isFull(_ soc: Int?) -> Bool {
 		guard let soc, (0...100).contains(soc) else { return false }
 		return soc >= 100

@@ -293,7 +293,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lsqlite3",
@@ -352,7 +352,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lsqlite3",
